@@ -1,0 +1,3 @@
+*.manifest
+.DS_STORE
+*.sublime-workspace
