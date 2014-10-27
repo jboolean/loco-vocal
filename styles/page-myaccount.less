@@ -1,0 +1,31 @@
+.page-myaccount {
+  form.account-edit {
+    input:not([type=checkbox]), select {
+      .form-control();
+    }
+
+    .make-row();
+
+    .info-basic, .info-optional {
+      .make-md-column(6);
+    }
+    .tos-group {
+      .make-xs-column(12);
+
+      .tos-text {
+        height: 100px;
+        overflow-y: scroll;
+        font-size: @font-size-small;
+        border: 1px solid @gray-light;
+      }
+    }
+
+    [type=submit] {
+      .btn();
+      .btn-lg();
+      .btn-primary();
+
+      .pull-right();
+    }
+  }
+}

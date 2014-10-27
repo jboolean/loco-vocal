@@ -2,5 +2,6 @@
 # css will be included automatically if name matches
 DEPENDENCIES = {
   'thirdparty/bootstrap/bootstrap-dropdown' => ['thirdparty/jquery'],
-  'global-nav' => []
+  'global-nav' => [],
+  'page-myaccount' => []
 }

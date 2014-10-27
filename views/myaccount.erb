@@ -1,0 +1,62 @@
+<div class="page-myaccount container">
+  <form class="account-edit">
+    <div class="info-basic">
+      <h3>Basic information</h3>
+      <div class="form-group"><label for="email1">Email address</label><input id="email1" type="email"></div>
+      <div class="form-group"><label for="email2">Confirm email address</label><input id="email2" type="email"></div>
+      <div class="form-group"><label for="password1">Password</label><input id="password1" type="password"></div>
+      <div class="form-group"><label for="password2password">Confirm password</label><input id="password2" type="password"></div>
+    </div>
+
+
+    <div class="info-optional">
+      <h3>Optional profile</h3>
+      <div class="form-group"><label for="birth-year">Birth year</label>
+      <select name="birth-year" id="birth-year">
+        <option value="" selected>Not selected</option>
+        <% this_year = Time.now.year
+        (this_year-110..this_year-13).each do |y| %>
+        <option value="<%=y%>"><%=y%></option>
+        <% end %>
+      </select>
+      </div>
+      <div class="form-group"><label for="sex">Gender</label>
+        <select name="sex" id="sex">
+          <option value="" selected>Not selected</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="location">Your town</label>
+        <input type="text" class="location-ac-field" id="location" placeholder="Search towns">
+      </div>
+      <div class="form-group"><label for="">Political Party</label>
+        <select name="party" id="party">
+          <option value="none" selected>Not selected</option>
+          <option value="dem">Democratic</option>
+          <option value="rep">Republican</option>
+          <option value="ind">Independent</option>
+          <option value="lib">Libertarian</option>
+          <option value="grn">Green</option>
+          <option value="rent">The Rent is Too Damn High</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="tos-group">
+      <h3>Terms &amp; Conditions</h3>
+      <div class="tos-text">
+        <%=(erb :tos).gsub(/(?:\n\r?|\r\n?)/, '<br>')%>
+      </div>
+      <div class="checkbox">
+        <label for="tos">
+          <input id="tos" type="checkbox"> I accept the Terms and Conditions
+        </label>
+      </div>
+    </div>
+    
+    <button type="submit">Submit</button>
+    
+  </form>
+</div>
