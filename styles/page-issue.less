@@ -1,0 +1,107 @@
+.page-issue {
+  .row {
+    .make-row();   
+  }
+
+  @toc-cols: 2;
+
+  .toc {
+    .make-sm-column(@toc-cols);
+
+    @media (min-width: @screen-sm-min) {
+      position: fixed;
+    }
+    margin-top: 20px;
+    // background-color: @gray-light;
+    ul, ol {
+      .nav();
+      .nav-pills();
+      .nav-stacked();
+    }
+  }
+
+  .issue-body {
+    @media (min-width: @screen-sm-min) {
+      .make-sm-column-offset(@toc-cols);
+    }
+    
+    .make-sm-column(7);
+    
+    font-family: @font-family-serif;
+  }
+  .voting {
+    h2 {
+      font-size: @font-size-base;
+    }
+
+    h3 {
+      font-size: @font-size-small;
+    }
+
+    .vote-controls, .results-summary {
+      display: inline-block;
+    }
+
+    @yayColor: #5cb85c;
+    @nayColor: #d9534f;
+
+    @voteBorders: 1px solid @gray-light;
+    .vote-box {
+      line-height: 1.5em;
+      border: @voteBorders;
+      border-radius: @border-radius-base;
+    }
+
+    .vote-controls {
+      & > .up, .down {
+        // border: 1px solid @gray-light;
+        // border-radius: @border-radius-base;
+        padding: 5px 9px;
+
+        cursor: pointer;
+
+      }
+
+      .applyColor(@base) {
+        color: @base;
+        &:hover {
+          background-color: fade(@base, 10%);
+        }
+      }
+
+      .up {
+        border-right: @voteBorders;
+        // border-bottom-left-radius: 0;
+        // border-bottom-right-radius: 0;
+
+        .applyColor(@yayColor);
+      }
+
+      .down {
+        border-right: @voteBorders;
+        border-top: @voteBorders; // separator
+        // border-top-left-radius: 0;
+        // border-top-right-radius: 0;
+
+        .applyColor(@nayColor);
+      }
+    }
+
+    .results-summary {
+      padding-left: 5px;
+      .headline {
+        font-weight: bold;
+      }
+
+      .breakdown {
+        font-size: @font-size-small;
+        .num-total {
+          font-weight: bold;
+        }
+      }
+    }
+
+    // .pull-right();
+    .make-sm-column(3);
+  }
+}
