@@ -26,4 +26,8 @@ class LLVL < Sinatra::Application
     send_file File.join('build', params[:filename])
   end
 
+  get '/fonts/:filename' do
+    send_file File.join('fonts', params[:filename])
+  end
+
 end
