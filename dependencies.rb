@@ -6,5 +6,6 @@ DEPENDENCIES = {
   'page-myaccount' => [],
   'page-issue' => ['autoNavs', 'thirdparty/bootstrap/tooltip'],
   'page-town' => [],
+  'page-loggedouthome' => [],
   'autoNavs' => ['thirdparty/bootstrap/scrollspy']
 }
