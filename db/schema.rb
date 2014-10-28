@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028175335) do
+ActiveRecord::Schema.define(version: 20141028195435) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
@@ -19,5 +19,40 @@ ActiveRecord::Schema.define(version: 20141028175335) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "parties", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+# Could not dump table "towns" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password"
+    t.integer  "yob"
+    t.integer  "gender"
+    t.integer  "my_town_id"
+    t.integer  "party_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["my_town_id"], name: "index_users_on_my_town_id"
+  add_index "users", ["party_id"], name: "index_users_on_party_id"
+
+  create_table "votes", force: true do |t|
+    t.boolean  "up"
+    t.integer  "issue_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["issue_id"], name: "index_votes_on_issue_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
