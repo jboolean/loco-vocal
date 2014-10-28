@@ -1,7 +1,7 @@
-webapp-skeleton
+Loco Local Vocal Local prototype
 ===============
 
-If I want to start a simple webapp, here's a good place to start. A basic Sinatra app with well organized folders, less-css, and dependency injection.
+Based on Julian Boilen's web-app skeleton. A basic Sinatra app with well organized folders, less-css, and dependency injection.
 
 ## Development
 
