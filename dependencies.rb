@@ -5,5 +5,6 @@ DEPENDENCIES = {
   'global-nav' => [],
   'page-myaccount' => [],
   'page-issue' => ['autoNavs', 'thirdparty/bootstrap/tooltip'],
+  'page-town' => [],
   'autoNavs' => ['thirdparty/bootstrap/scrollspy']
 }

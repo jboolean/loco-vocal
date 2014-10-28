@@ -1,0 +1,62 @@
+.page-town {
+  section {
+    .make-row();
+  }
+
+  .make-my-town.btn {
+    position: relative;
+    .pull-right();
+    .btn();
+    .btn-info();
+
+    z-index: 2;
+  }
+
+  .top {
+    position: relative;
+    min-height: 200px;
+
+    margin-bottom: 2em;
+    
+    .picture-frame {
+      .make-sm-column(3);
+      max-height: 240px;
+      overflow: hidden;
+    }
+
+    .intro {
+      .make-sm-column(9);
+      p {
+        font-family: @font-family-serif; 
+      }
+    }
+
+    /* Hiding or showing image */
+    /* .top.no-image for hiding image */
+
+    &.no-image {
+      .picture-frame {
+        display: none;
+      }
+      .intro {
+        .make-sm-column(12);
+      }
+    }
+  } //end top
+
+  .news, .issues {
+    .make-sm-column(6);
+
+    ul {
+      font-family: @font-family-serif;
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-bottom: 2em;
+        border-left: 5px solid @gray-light;
+        padding-left: 10px;
+      }
+    }
+  }
+}

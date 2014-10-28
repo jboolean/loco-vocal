@@ -1,0 +1,1 @@
+// Placeholder js for town page. Required to make CSS be included
