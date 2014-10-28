@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 gem 'therubyracer' # Ruby
 gem 'less-rails'
 
+gem 'redcarpet' 
+
 group :assets do
   # gem 'less'
 end

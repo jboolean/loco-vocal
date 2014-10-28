@@ -1,0 +1,35 @@
+
+<div class="container page-issue">
+  <div class="row">
+    <div class="toc">
+      <%= render 'toc' %>
+    </div>
+    <div class="issue-body">
+      <h1><%= h @issue.title %></h1>
+      <%= @mdparser.render(@issue.content).html_safe %>
+    </div>
+
+    <div class="voting">
+      <h2>Vote on this Issue</h2>
+      <div class="vote-box">
+        <div class="vote-controls">
+          <div class="up"><span class="glyphicon glyphicon-ok"></span></div>
+          <div class="down"><span class="glyphicon glyphicon-remove"></span></div>
+        </div>
+        <div class="results-summary">
+          <div class="headline">0% of users support this</div>
+          <div class="breakdown"><span class="num-total yays">0</span> in favor / <span class="num-total nays">4</span> opposed</div>
+        </div>
+      </div>
+
+      <h3>Statistics</h3>
+
+      <div class="stats">
+        <%= render 'stats_sidebar' %>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
