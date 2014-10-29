@@ -4,6 +4,7 @@ class CreateTowns < ActiveRecord::Migration
       t.string :name
       t.text :intro
       t.string :image_url
+      t.references :parent
       t.references :issues, index: true
 
       t.timestamps

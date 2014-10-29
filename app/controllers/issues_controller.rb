@@ -32,6 +32,12 @@ class IssuesController < ApplicationController
 
   private
   def issue_params
-    params.require(:issue).permit(:title, :content)
+ 
+    params2 = params.require(:issue).permit(:title, :content, :town)
+    puts params2.inspect
+    if (params2['town'])
+      params2['town'] = Town.find(params2['town'].to_i)
+    end
+    params2
   end
 end

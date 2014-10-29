@@ -20,6 +20,11 @@
     <%= f.text_area :content %>
     <small>Markdown</small>
   </p>
+  <%= @issue.inspect %>
+  <p>
+    <%= f.label :town %><br>
+    <%= f.select :town, options_for_select(Town.all.map{|s|[s.name, s.id]}, @issue[:town_id]) %>
+  </p>
  
   <p>
     <%= f.submit %>

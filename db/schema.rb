@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028195435) do
+ActiveRecord::Schema.define(version: 20141028204527) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "town_id"
   end
+
+  add_index "issues", ["town_id"], name: "index_issues_on_town_id"
 
   create_table "parties", force: true do |t|
     t.string   "name"
@@ -27,8 +30,17 @@ ActiveRecord::Schema.define(version: 20141028195435) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "towns" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "towns", force: true do |t|
+    t.string   "name"
+    t.text     "intro"
+    t.string   "image_url"
+    t.integer  "issues_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_id"
+  end
+
+  add_index "towns", ["issues_id"], name: "index_towns_on_issues_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
