@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home' => 'home#index'
 
-  resources :issues
+  resources :towns do
+    resources :issues
+  end
   # get 'issue/:id' => 'issue#view'
 
   # The priority is based upon order of creation: first created -> highest priority.

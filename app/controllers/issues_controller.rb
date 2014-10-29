@@ -5,14 +5,18 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
     @title = @issue.title
     @mdparser = @@mdparser
+    @town = Town.find(params[:town_id])
   end
 
   def new
+    @town = Town.find(params[:town_id])
     @issue = Issue.new
+    @issue.town = @town
   end
 
   def edit
     @issue = Issue.find(params[:id])
+    @town = Town.find(params[:town_id])
   end
 
   def update
@@ -40,4 +44,5 @@ class IssuesController < ApplicationController
     end
     params2
   end
+
 end
