@@ -1,5 +1,4 @@
 class IssuesController < ApplicationController
-  @@mdparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options = {}), extensions = {})
 
   def show
     @issue = Issue.find(params[:id])

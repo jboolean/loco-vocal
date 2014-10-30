@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :towns do
     resources :issues
   end
+
+  resources :users
   # get 'issue/:id' => 'issue#view'
 
   # The priority is based upon order of creation: first created -> highest priority.

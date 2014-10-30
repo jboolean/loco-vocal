@@ -1,5 +1,4 @@
 class TownsController < ApplicationController
-  @@mdparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options = {}), extensions = {})
 
   def show
     @town = Town.find(params[:id])

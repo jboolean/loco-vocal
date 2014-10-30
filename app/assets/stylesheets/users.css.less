@@ -1,0 +1,36 @@
+@import 'bootstrap/forms'; // not sure if this is kosher
+@import 'bootstrap/buttons';
+@import '_base';
+
+// .page-myaccount {
+  form.account-edit {
+    input:not([type=checkbox]):not([type=submit]), select {
+      .form-control();
+    }
+
+    .make-row();
+
+    .info-basic, .info-optional {
+      .make-md-column(6);
+    }
+    .tos-group {
+      .make-xs-column(12);
+
+      .tos-text {
+        height: 100px;
+        font-size: 80%;
+        overflow-y: scroll;
+        font-size: @font-size-small;
+        border: 1px solid @gray-light;
+      }
+    }
+
+    [type=submit] {
+      .btn();
+      .btn-lg();
+      .btn-primary();
+
+      float: right;
+    }
+  }
+// }
