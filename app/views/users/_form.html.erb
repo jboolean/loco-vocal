@@ -1,0 +1,107 @@
+<%= form_for @user, :html => {:class => "account-edit"} do |f| %>
+
+    <% if @success == true %>
+    <div class="alert alert-success">Updated</div>
+    <% end %>
+
+    <% unless !@errors || @errors.empty? %>
+      <div id="error_explanation" class="alert alert-warning">
+        <p><strong><%= pluralize(@errors.length, "error") %> prohibited
+          your account from being created:</strong></p>
+        <ul>
+        <% @errors.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="info-basic">
+      <h3>Basic information</h3>
+
+      <div class="form-group">
+        <%= f.label :email, 'Email address' %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="form-group">
+        <label for="email_confirm">Confirm email address</label>
+        <input id="email_confirm" name="email_confirm" type="email">
+      </div>
+
+
+      <% unless @user.new_record? %>
+      <div class="form-group">
+        <label for="password_old">Old password</label>
+        <input id="password_old" name="password_old" type="password">
+      </div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+
+      <% if @user.new_record? %>
+      <div class="form-group">
+        <label for="password_confirm">Confirm password</label>
+        <input id="password_confirm" name="password_confirm" type="password">
+      </div>
+      <% end %>
+
+    </div>
+
+
+    <div class="info-optional">
+      <h3>Optional profile</h3>
+
+      <div class="form-group">
+        <%= f.label :yob, 'Birth year' %>
+        <% this_year = Time.now.year
+        @years = (this_year-110..this_year-13).to_a %>
+
+        <%= f.select :yob, @years, include_blank: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :gender, 'Gender' %>
+        <%= f.select :gender, [['Male', 1], ['Female', 2]], include_blank:true %>
+      </div>
+
+      <div class="form-group"><label for="location">Your town</label>
+        <!-- TODO -->
+        <input type="text" class="location-ac-field" id="location" placeholder="Search towns">
+      </div>
+
+      <div class="form-group"><label for="">Political Party</label>
+        <!-- TODO -->
+        <select name="party" id="party">
+          <option value="none" selected>Not selected</option>
+          <option value="dem">Democratic</option>
+          <option value="rep">Republican</option>
+          <option value="ind">Independent</option>
+          <option value="lib">Libertarian</option>
+          <option value="grn">Green</option>
+          <option value="rent">The Rent is Too Damn High</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <% if @user.new_record? %>
+    <div class="tos-group">
+      <h3>Terms &amp; Conditions</h3>
+      <div class="tos-text">
+        <%=@mdparser.render(render({partial: 'global/tos.md'})).html_safe%>
+      </div>
+      <div class="checkbox">
+        <label for="tos">
+          <input id="tos" name="tos" value="accepted" type="checkbox"> I accept the Terms and Conditions
+        </label>
+      </div>
+    </div>
+    <% end %>
+    
+    <button type="submit"><%= @user.new_record? ? 'Register' : 'Update Account' %></button>
+    
+  <% end %>
