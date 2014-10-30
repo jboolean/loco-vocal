@@ -1,16 +1,8 @@
 <%= form_for [@town, @issue] do |f| %>
-  <% if @issue.errors.any? %>
-    <div id="error_explanation" class="alert alert-warning">
-      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited
-        this issue from being saved:</h2>
-      <ul>
-      <% @issue.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
+  <%= render ({
+    :partial => 'global/save_errors',
+    :locals => {:object => @town}}) %>
+    <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
@@ -20,6 +12,7 @@
     <%= f.text_area :content %>
     <small>Markdown</small>
   </p>
+
   <p>
     <%= f.label :town %><br>
     <%= f.select :town, options_for_select(Town.all.map{|s|[s.name, s.id]}, @town.id) %>

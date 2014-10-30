@@ -1,0 +1,30 @@
+<%= form_for @town do |f| %>
+  <%= render ({
+    :partial => 'global/save_errors',
+    :locals => {:object => @town}}) %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+    <small>Host it your damn self</small>
+  </p>
+ 
+  <p>
+    <%= f.label :intro %><br>
+    <%= f.text_area :intro %>
+    <small>Markdown</small>
+  </p>
+
+  <p>
+    <%= f.label :parent_id %><br>
+    <%= f.select :parent_id, options_for_select(@selectList, @town.parent.nil? ? nil : @town.parent.id) %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

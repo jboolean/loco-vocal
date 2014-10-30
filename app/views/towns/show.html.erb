@@ -1,0 +1,55 @@
+<div class="container page-town">
+  <button type="button" class="make-my-town btn btn-primary pull-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;Make this My Town</button>
+
+
+<section class="top <%= @town.image_url.nil? ? 'no' : 'has' %>image">
+  <div class="picture-frame">
+
+  <% unless @town.image_url.nil? %><img class="img-responsive" src="<%= @town.image_url %>"> <% end %>
+  </div>
+  <div class="intro">
+    <h1><%= h @town.name %></h1>
+    <% unless @town.parent.nil? %>
+    <small>Part of <%= link_to @town.parent.name, @town.parent %></small> <% end %>
+    <%= @mdparser.render(@town.intro).html_safe unless @town.intro.nil? %>
+  </div>
+</section>
+
+<section class="news">
+  <h2>News</h2>
+  <ul>
+    <li>
+      <h4>Questions Raised Over NY Ebola Quarantine</h4>
+      <h5>Learn &amp; vote: <a href="/issue/ebola" class="issue-link">NY Mandatory Ebola Quarantine</a></h5>
+    </li>
+    <li>
+      <h4>Day After Gubernatorial Debate, Astorino Calls For One-on-One With Cuomo</h4>
+      <h5>Learn &amp; vote: <a href="/issue/nygov" class="issue-link">New York Gubinatorial Election 2014</a></h5>
+    </li>
+    <li>
+      <h4>Title</h4>
+      <h5><a href="">Issue link</a></h5>
+    </li>
+    <li>
+      <h4>Title</h4>
+      <h5><a href="">Issue link</a></h5>
+    </li>
+  </ul>
+</section>
+
+
+<section class="issues">
+  <h2>Issues</h2>
+  <ul>
+    <% @town.issues.each do |issue| %>
+   <li>
+     <h4><%= link_to issue.title, [issue.town, issue] %>
+      &nbsp;<small><%=issue.town.name%></small>
+     </h4>
+     <h5><%= h issue.subhead || '' %></h5>
+   </li>
+   <% end %>
+  </ul>
+</section>
+
+</div>

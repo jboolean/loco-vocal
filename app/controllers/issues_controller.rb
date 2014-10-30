@@ -23,7 +23,7 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
    
     if @issue.update(issue_params)
-      redirect_to @issue
+      redirect_to [@issue.town, @issue]
     else
       render 'edit'
     end
@@ -31,7 +31,7 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.create(issue_params)
-    redirect_to @issue
+    redirect_to [@issue.town, @issue]
   end
 
   private

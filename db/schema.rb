@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028204527) do
+ActiveRecord::Schema.define(version: 20141029232017) do
 
   create_table "issues", force: true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141028204527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "town_id"
+    t.string   "subhead"
   end
 
   add_index "issues", ["town_id"], name: "index_issues_on_town_id"
