@@ -14,7 +14,9 @@
         <button type="submit" class="btn btn-default">Search</button>
       </form>
 
-      <li class=""><a href="#">My Town</a></li>
+      <% unless !logged_in? || authenticated_user.my_town.nil? %>
+      <li class="my-town-btn"><%= link_to(authenticated_user.my_town.name, town_path(authenticated_user.my_town)) %></li>
+      <% end %>
 
       </ul>
 

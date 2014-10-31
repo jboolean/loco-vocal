@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password
   validates_uniqueness_of :email
 
-  has_one :my_town
+  belongs_to :my_town, class_name: 'Town'
   has_one :party
 
   def password=(value)
