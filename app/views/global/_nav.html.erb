@@ -17,15 +17,22 @@
       <li class=""><a href="#">My Town</a></li>
 
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">User (John) <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">User (<%= h authenticated_user.email %>) <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/myaccount">My Account</a></li>
+            <li><%= link_to('My Account', edit_user_path(authenticated_user))%>
             <li class="divider"></li>
-            <li><a href="#">Log out</a></li>
+            <li><%= link_to 'Logout', session_path, method: :delete %></li>
           </ul>
         </li>
+
+        <% else %>
+        <li><a href="/session/login">Login</a></li>
+        <% end %>
+
       </ul>
 
     </div>

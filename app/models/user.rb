@@ -12,15 +12,19 @@ class User < ActiveRecord::Base
   has_one :party
 
   def password=(value)
-    write_attribute(:password, hash_password(value))
+    write_attribute(:password, self.hash_password(value))
   end
 
   def pass_eql?(value)
-    password == hash_password(value)
+    password == self.hash_password(value)
+  end
+
+  def self.find_by_email_pass(email, pass)
+    User.find_by({email: email, password: hash_password(pass)})
   end
 
   private
-  def hash_password(password)
+  def self.hash_password(password)
     Digest::SHA256.base64digest(password+SALT)
   end
 end

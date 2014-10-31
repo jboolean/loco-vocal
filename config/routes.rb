@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
+  # resources :session
+  post 'session' => 'session#create'
+  delete 'session' => 'session#logout'
+  get 'session/login' => 'session#login'
   # get 'issue/:id' => 'issue#view'
 
   # The priority is based upon order of creation: first created -> highest priority.
