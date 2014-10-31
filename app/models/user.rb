@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   belongs_to :my_town, class_name: 'Town'
-  has_one :party
+  belongs_to :party
 
   def password=(value)
     write_attribute(:password, self.hash_password(value))

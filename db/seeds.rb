@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Party.create([
+  {name: 'Democratic', color: '#00000FF'},
+  {name: 'Republican', color: '#FF00000'}
+  ])

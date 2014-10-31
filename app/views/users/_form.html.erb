@@ -73,18 +73,9 @@
         <input type="text" class="location-ac-field" id="location" placeholder="Search towns">
       </div>
 
-      <div class="form-group"><label for="">Political Party</label>
-        <!-- TODO -->
-        <select name="party" id="party">
-          <option value="none" selected>Not selected</option>
-          <option value="dem">Democratic</option>
-          <option value="rep">Republican</option>
-          <option value="ind">Independent</option>
-          <option value="lib">Libertarian</option>
-          <option value="grn">Green</option>
-          <option value="rent">The Rent is Too Damn High</option>
-          <option value="other">Other</option>
-        </select>
+      <div class="form-group">
+        <%= f.label :party_id %>
+        <%= f.select :party_id, options_for_select(Party.all.map{|p| [p.name, p.id]}, @user.party.nil? ? nil : @user.party.id),include_blank: true %>
       </div>
     </div>
 

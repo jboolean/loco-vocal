@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @mdparser = @@mdparser
 
-    @user = User.new(params.require(:user).permit(:email, :yob, :password, :gender))
+    @user = User.new(params.require(:user).permit(:email, :yob, :password, :gender, :party_id, :my_town_id))
 
     @errors = []
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
 
     @user = User.find(params[:id])
-    user_params = params.require(:user).permit(:email, :yob, :password, :gender, :my_town_id)
+    user_params = params.require(:user).permit(:email, :yob, :password, :gender, :my_town_id, :party_id)
 
     if (!user_params[:email].blank? && 
       user_params[:email] != @user.email && 
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
 
     @user.yob = user_params[:yob] unless user_params[:yob].nil?
     @user.gender = user_params[:gender] unless user_params[:gender].nil?
+    @user.party_id = user_params[:party_id] unless user_params[:party_id].nil?
 
     unless user_params[:password].blank?
       if @user.pass_eql?(params[:password_old])
