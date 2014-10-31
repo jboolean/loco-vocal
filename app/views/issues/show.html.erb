@@ -12,6 +12,8 @@
     </div>
 
     <div class="voting">
+
+      <% if logged_in? %>
       <h2>Vote on this Issue</h2>
       <div class="vote-box">
         <div class="vote-controls">
@@ -20,17 +22,32 @@
         </div>
         <div class="results-summary">
           <div class="headline">0% of users support this</div>
-          <div class="breakdown"><span class="num-total yays">0</span> in favor / <span class="num-total nays">4</span> opposed</div>
+          <div class="breakdown"><span class="num-total yays"><%=@votes[:up].count%></span> in favor / <span class="num-total nays"><%=@votes[:down].count%></span> opposed</div>
         </div>
       </div>
+      <% end %>
 
       <h3>Statistics</h3>
 
       <div class="stats">
-         <%= render ({
+         
+        <small>Voting for</small>
+        <%= render ({
         :partial => 'votes/stats',
-        :locals => {:issue => @issue}}) %>
+        :locals => {:votes => @votes[:up]}}) 
+# render template: '/votes/stats'
+        %>
+
+        <small>Voting against</small>
+           <%= render ({
+        :partial => 'votes/stats',
+        :locals => {:votes => @votes[:down]}}) 
+# render template: '/votes/stats'
+        %>
+
       </div>
+
+
 
     </div>
 

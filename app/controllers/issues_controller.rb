@@ -6,6 +6,7 @@ class IssuesController < ApplicationController
     @title = @issue.title
     @mdparser = @@mdparser
     @town = Town.find(params[:town_id])
+    @votes = votes
   end
 
   def new
@@ -43,6 +44,22 @@ class IssuesController < ApplicationController
       params2['town'] = Town.find(params2['town'].to_i)
     end
     params2
+  end
+
+  def votes
+    {
+      :up => Vote.where({:issue => @issue, :up => true}),
+      :down => Vote.where({:issue => @issue, :up => false}),
+    }
+  end
+
+  helper_method :statistics
+  def statistics(votes)
+    votes.reduce(Hash.new(0)) do |memo, vote|
+      puts vote.inspect
+      memo[vote.party]+=1
+      return memo
+    end
   end
 
 end

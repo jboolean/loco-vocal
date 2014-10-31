@@ -13,4 +13,9 @@ class VotesController < ApplicationController
     render json: {:success => true, :result => @vote}.to_json, status: :ok
   end
 
+  def stats
+
+    # render '_stats'
+  end
+
 end
