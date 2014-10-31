@@ -1,4 +1,6 @@
-
+<script>
+  ISSUE =  <%= @issue.to_json.html_safe %>
+</script>
 <div class="container page-issue">
   <div class="row">
     <div class="toc">
@@ -13,8 +15,8 @@
       <h2>Vote on this Issue</h2>
       <div class="vote-box">
         <div class="vote-controls">
-          <div class="up"><span class="glyphicon glyphicon-ok"></span></div>
-          <div class="down"><span class="glyphicon glyphicon-remove"></span></div>
+          <div class="up <% if @user_vote && @user_vote.up %> active <% end %>"><span class="glyphicon glyphicon-ok"></span></div>
+          <div class="down <% if @user_vote && !@user_vote.up %> active <% end %>"><span class="glyphicon glyphicon-remove"></span></div>
         </div>
         <div class="results-summary">
           <div class="headline">0% of users support this</div>
@@ -25,7 +27,9 @@
       <h3>Statistics</h3>
 
       <div class="stats">
-        <%= render 'stats_sidebar' %>
+         <%= render ({
+        :partial => 'votes/stats',
+        :locals => {:issue => @issue}}) %>
       </div>
 
     </div>

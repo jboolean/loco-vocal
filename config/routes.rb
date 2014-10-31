@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
 
   resources :towns do
-    resources :issues
+    resources :issues do
+      resources :votes
+    end
   end
 
   resources :users

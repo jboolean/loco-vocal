@@ -2,6 +2,7 @@ class IssuesController < ApplicationController
 
   def show
     @issue = Issue.find(params[:id])
+    @user_vote = Vote.find_by({:issue => @issue, :user => authenticated_user})
     @title = @issue.title
     @mdparser = @@mdparser
     @town = Town.find(params[:town_id])
