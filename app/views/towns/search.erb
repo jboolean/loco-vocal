@@ -1,0 +1,14 @@
+<div class="container page-search">
+  <% if @results.empty? %>
+  <div class="alert alert-warning">I got nothing <%= link_to :back %></div>
+  <% else %>
+  <ol>
+    <% @results.each do |result| %>
+    <li>
+      <span class="title"><%= link_to(result.name, town_path(result)) %>
+      </span>
+    </li>
+    <% end %>
+  </ol>
+  <% end %>
+</div>

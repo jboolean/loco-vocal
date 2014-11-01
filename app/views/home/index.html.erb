@@ -3,27 +3,23 @@
     <h1>Vocal Local</h1>
     <p class="lead">A place to stay on top of your local laws and happenings. Begin by registering or searching for your town or issues.</p>
 
+    <form class="" role="search" action="/towns/search" method="GET">
     <div class="input-group input-group-lg">
       <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-      <input type="text" class="form-control" placeholder="Search Issues &amp; Localities">
+      <input name="query" type="text" class="form-control" placeholder="Search Issues &amp; Localities">
     </div>
+    </form>
   </div>
 
   <section class="global-hot">
     <h2>What&rsquo;s <em>Loco in the Local</em></h2>
+    <% @featured_issues.each do |issue| %>
     <ul class="loco-list">
       <li>
-        <h4><a href="">Henrietta Housing Code</a></h4>
-        <h5>People don&rsquo;t like it</h5>
+        <h4><%= link_to issue.title, [issue.town, issue] %></h4>
+        <h5><%= issue.subhead %></h5>
       </li>
-      <li>
-        <h4><a href="">NY Carbon Cap Bill</a></h4>
-         <h5>Yep, Made This One Up</h5>
-      </li>
-      <li>
-        <h4><a href="">We Need Mini-Stats</a></h4>
-        <h5>I Need to Prototype That Mini-Stats View From The Design Doc</h5>
-      </li>
+      <% end %>
     </ul>
   </section>
 </div>

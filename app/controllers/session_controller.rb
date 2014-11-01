@@ -33,7 +33,7 @@ class SessionController < ApplicationController
         render json: '{"success": true}', status: :ok
       end
       format.html do
-        redirect_to 
+        redirect_to root_url
       end
     end
     
