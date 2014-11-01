@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home' => 'home#index'
+  get 'towns/search' => 'towns#search'
 
   resources :towns do
     resources :issues do
       resources :votes
     end
   end
+
 
   resources :users
 
