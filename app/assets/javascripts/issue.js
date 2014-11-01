@@ -1,5 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+//= require bootstrap/tooltip
+
 var vote = function(up, success, error) {
   $.ajax('/towns/' + ISSUE.town_id + '/issues/' + ISSUE.id + '/votes', {
     data: {

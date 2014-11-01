@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Party.create([
-  {name: 'Democratic', color: '#0000FF'},
-  {name: 'Republican', color: '#FF0000'}
+  {name: 'Democratic', color: '#0081C6'},
+  {name: 'Republican', color: '#CE1E17'},
+  {name: 'Green Party', coler: '#33FF33'}
   ])

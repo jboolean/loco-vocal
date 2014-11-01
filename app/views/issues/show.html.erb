@@ -21,7 +21,8 @@
           <div class="down <% if @user_vote && !@user_vote.up %> active <% end %>"><span class="glyphicon glyphicon-remove"></span></div>
         </div>
         <div class="results-summary">
-          <div class="headline">0% of users support this</div>
+          <% total_votes = @votes[:down].count + @votes[:up].count %>
+          <div class="headline"><%= total_votes == 0 ? 0 : @votes[:up].count/total_votes*100 %>% of users support this</div>
           <div class="breakdown"><span class="num-total yays"><%=@votes[:up].count%></span> in favor / <span class="num-total nays"><%=@votes[:down].count%></span> opposed</div>
         </div>
       </div>
@@ -35,14 +36,12 @@
         <%= render ({
         :partial => 'votes/stats',
         :locals => {:votes => @votes[:up]}}) 
-# render template: '/votes/stats'
         %>
 
         <small>Voting against</small>
            <%= render ({
         :partial => 'votes/stats',
         :locals => {:votes => @votes[:down]}}) 
-# render template: '/votes/stats'
         %>
 
       </div>

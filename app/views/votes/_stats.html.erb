@@ -6,7 +6,7 @@
             end
           %>
           <% statistics(votes).each do |party, count| %>
-          <div class="progress-bar progress-bar-success" 
+          <div title="<%= party ? party.name : 'None' %>" class="progress-bar progress-bar-success" 
           style="width: <%= percent(count,votes.count)%>%; background-color: <%=party ? party.color : '#444' %>">
             <span class="sr-only"><%= party ? party.name : 'None' %></span>
           </div>
