@@ -9,5 +9,5 @@
 Party.create([
   {name: 'Democratic', color: '#0081C6'},
   {name: 'Republican', color: '#CE1E17'},
-  {name: 'Green Party', coler: '#33FF33'}
+  {name: 'Green Party', color: '#33FF33'}
   ])
