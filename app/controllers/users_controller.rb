@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     end
 
     if @errors.empty?
+      session[:authenticated_user_id] = @user.id
       redirect_to root_url
     else
       render 'new'
