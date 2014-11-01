@@ -2,10 +2,12 @@
   TOWN = <%=@town.to_json.html_safe %>
 </script>
 <div class="container page-town">
+  <% if logged_in? %>
   <% unless authenticated_user.my_town == @town %>
   <button type="button" class="make-my-town add btn btn-primary pull-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;Make this My Town</button>
   <% else %>
   <button class="make-my-town remove btn btn-default pull-right"><span class="glyphicon glyphicon-star"></span>&nbsp;My Town</button>
+  <% end %>
   <% end %>
 
 
