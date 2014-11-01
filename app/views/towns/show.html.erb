@@ -11,7 +11,7 @@
   <% end %>
 
 
-<section class="top <%= @town.image_url.nil? ? 'no' : 'has' %>-image">
+<section class="top <%= @town.image_url.blank? ? 'no' : 'has' %>-image">
   <div class="picture-frame">
 
   <% unless @town.image_url.nil? %><img class="img-responsive" src="<%= @town.image_url %>"> <% end %>
