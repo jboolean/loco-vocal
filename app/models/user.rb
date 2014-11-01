@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   belongs_to :party
 
   def password=(value)
-    write_attribute(:password, self.hash_password(value))
+    write_attribute(:password, User.hash_password(value))
   end
 
   def pass_eql?(value)
