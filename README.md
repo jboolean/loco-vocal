@@ -8,6 +8,9 @@ A version of this application is deployed at localvocal.herokuapp.com
 
 This is a Ruby on Rails 4 application. Questions involving the structure of the framework should be directed at the [Rails guides](http://guides.rubyonrails.org). Suffice to say the application can be setup as follows.
 
+First, you must have a working version of Ruby. Ruby can be installed via your package manager on *nix, or from rubyinstaller.org on Windows. However, on Windows, it's recommended to install a Linux VM due to the difficulty of installing Ruby directly on Windows. 
+You must also install the `bundler` gem. Run: `gem install bundler`
+
 All commands should be run from the directory containing this README.
 
 First, download and install all dependencies for the application. 
