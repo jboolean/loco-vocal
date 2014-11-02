@@ -22,7 +22,7 @@
         </div>
         <div class="results-summary">
           <% total_votes = @votes[:down].count + @votes[:up].count %>
-          <div class="headline"><%= total_votes == 0 ? 0 : @votes[:up].count/total_votes*100 %>% of users support this</div>
+          <div class="headline"><%= total_votes == 0 ? 0 : ((@votes[:up].count.to_f/total_votes.to_f)*100).round %>% of users support this</div>
           <div class="breakdown"><span class="num-total yays"><%=@votes[:up].count%></span> in favor / <span class="num-total nays"><%=@votes[:down].count%></span> opposed</div>
         </div>
       </div>
