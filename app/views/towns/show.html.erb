@@ -50,7 +50,7 @@
 <section class="issues">
   <h2>Issues</h2>
   <ul>
-    <% @town.issues.each do |issue| %>
+    <% @featured_issues.each do |issue| %>
    <li>
      <h4><%= link_to issue.title, [issue.town, issue] %>
       &nbsp;<small><%=issue.town.name%></small>

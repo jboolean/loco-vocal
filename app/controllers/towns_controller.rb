@@ -4,6 +4,15 @@ class TownsController < ApplicationController
     @town = Town.find(params[:id])
     @title = @town.name
     @mdparser = @@mdparser
+
+    cur_town = @town
+    @featured_issues = []
+    until cur_town.nil?
+      @featured_issues.concat(cur_town.issues)
+      cur_town = cur_town.parent
+    end
+
+    @featured_issues.sort_by!{|i| i.created_at}.reverse!
   end
 
   def new
