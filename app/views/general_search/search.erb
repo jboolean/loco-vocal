@@ -1,0 +1,28 @@
+<div class="container page-search">
+  <h1>Search results</h1>
+  <p class="lead">&ldquo;<%=@query%>&rdquo;</p>
+  <% if @towns.empty?  && @issues.empty?%>
+  <div class="alert alert-warning">I got nothing <%= link_to :back %></div>
+  <% else %>
+
+  <h2>Towns</h2>
+  <ol class="results towns">
+    <% @towns.each do |result| %>
+    <li>
+      <span class="title"><%= link_to(result.name, town_path(result)) %>
+      </span>
+    </li>
+    <% end %>
+  </ol>
+  
+  <h2>Issues</h2>
+  <ol class="results issues">
+    <% @issues.each do |result| %>
+    <li>
+      <span class="title"><%= link_to(result.title, [result.town, result]) %>
+      </span>
+    </li>
+    <% end %>
+  </ol>
+  <% end %>
+</div>

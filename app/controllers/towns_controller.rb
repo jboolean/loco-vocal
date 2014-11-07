@@ -40,11 +40,6 @@ class TownsController < ApplicationController
     end
   end
 
-  def search
-    @results = Town.where('name LIKE ?', ["%#{params[:query]}%"])
-    return render json: {:results => @results}.to_json if request[:format] == :json
-  end
-
   private 
   def makeTownSelect
     townList = [['Top Level (No Parent)', nil]];

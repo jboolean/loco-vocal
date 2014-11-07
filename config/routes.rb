@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home' => 'home#index'
-  get 'towns/search' => 'towns#search'
+  get '/search' => 'general_search#search'
 
   resources :towns do
     resources :issues do
