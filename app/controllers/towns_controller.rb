@@ -43,7 +43,7 @@ class TownsController < ApplicationController
   private 
   def makeTownSelect
     townList = [['Top Level (No Parent)', nil]];
-    townList.concat(Town.all.map{|t|[t.name, t.id]})
+    townList.concat(Town.order('name').map{|t|[t.name, t.id]})
     townList.reject!{|t| t == @town}
     townList
   end

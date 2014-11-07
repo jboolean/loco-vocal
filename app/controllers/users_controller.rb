@@ -66,6 +66,7 @@ class UsersController < ApplicationController
     @user.yob = user_params[:yob] unless user_params[:yob].nil?
     @user.gender = user_params[:gender] unless user_params[:gender].nil?
     @user.party_id = user_params[:party_id] unless user_params[:party_id].nil?
+    @user.my_town_id = user_params[:my_town_id] unless user_params[:my_town_id].nil?
 
     unless user_params[:password].blank?
       if @user.pass_eql?(params[:password_old])
