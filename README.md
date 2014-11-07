@@ -31,8 +31,6 @@ Navigate to the server in your browser at the port it started on, usually 3000.
 
 ### The following features have not yet been impliemented in this prototype.
 - The News feature is static content right now. The backend has not been implemented.
-- Search results are rudimentary and only searches town names. Will search issues in the future.
-- CSS needed on search and login pages
 - Login will be moved into the navigation bar, as per the requirements.
 - Search will have autocomplete.
 - Location field on user account will autocomplete town names and link a town.
