@@ -55,12 +55,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     user_params = params.require(:user).permit(:email, :yob, :password, :gender, :my_town_id, :party_id)
 
-    if (!user_params[:email].blank? && 
-      user_params[:email] != @user.email && 
-      user_params[:email] != params[:email_confirm])
-      @errors << 'Email addresses do not match'
-    else
-      @user.email = user_params[:email]
+
+    unless user_params[:email].blank?
+      if (user_params[:email] != @user.email &&  user_params[:email] != params[:email_confirm])
+        @errors << 'Email addresses do not match'
+      else
+        @user.email = user_params[:email]
+      end
     end
 
     @user.yob = user_params[:yob] unless user_params[:yob].nil?
@@ -88,7 +89,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html {render 'edit'}
-      format.json {render json: '{"success": true}', status: :ok}
+      format.json {render json: {:success => @success, :errors => @errors}.to_json, status: :ok}
     end
 
   end
