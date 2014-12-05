@@ -1,3 +1,30 @@
+# About Loco Local Vocal Local
+
+Local government has been behind the curve when integrating technology.  The idea of this product is to offer a place for people to stay on top of local politics, as well as find out more about topics they are passionate about.
+The user can register to the system with optional demographic information that may be used anonymously in statistical analyses. Currently, only the Political Party field is used.
+The system will contain Towns and Issues within each Town. Towns can be sub-localities of other Towns. For example, one might have a State and a City.
+The user can register themselves to their Town as a bookmark to follow activity in that town. A user may find any Issue of intetrest in the system, read its content, and vote up or down. Basic statistics on voting behaviour by party can be viewed. 
+It is the plan to allow issues to assume different formats depending on what they represent (bills, news items, candidates), but that is not in this prototype.
+
+## Scope of Prototype
+
+### Implemented
+- Basic issues
+- Voting up/down on issues
+- User accounts
+- Basic towns
+- Inherited towns
+- Joining a town
+- Very rudimentary search
+- Temporary, unsecured administrative functions
+
+### Not implemented
+- Good search
+- Any real administrative functions
+- Varying issue types
+- More statistics
+
+
 # Loco Local Vocal Local prototype
 
 The is a prototype of the Loco Local Vocal Local application. It demonstrates the basic functionality specififed in the requirements. As a prototype, it is not intended to be fully functional, secure, bug-free, or to run at scale.
