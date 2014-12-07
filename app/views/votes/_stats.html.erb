@@ -2,7 +2,7 @@
         <div class="progress">
           <% def percent(num, denum)
               return 0 if denum == 0
-              return num/denum*100
+              return (num.fdiv(denum))*100
             end
           %>
           <% statistics(votes).each do |party, count| %>

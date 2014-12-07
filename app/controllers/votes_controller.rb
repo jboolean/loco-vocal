@@ -10,7 +10,7 @@ class VotesController < ApplicationController
     @vote.up = params[:up]
     @vote.save
     
-    render json: {:success => true, :result => @vote}.to_json, status: :ok
+    render json: {:success => @vote.errors.empty?, :errors => @vote.errors, :result => @vote}.to_json, status: :ok
   end
 
   def stats

@@ -55,11 +55,13 @@ class IssuesController < ApplicationController
 
   helper_method :statistics
   def statistics(votes)
-    votes.reduce(Hash.new(0)) do |memo, vote|
+    memo = Hash.new(0)
+    votes.each do |vote|
+      puts "TTTT"
       puts vote.inspect
       memo[vote.party]+=1
-      return memo
     end
+    memo
   end
 
 end
